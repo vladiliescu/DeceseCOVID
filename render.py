@@ -19,7 +19,7 @@ unvaccinated = 397
 vaccinated = 45
 
 
-rendered = template.render(total_deaths=total_deaths)
+rendered = template.render(unvaccinated=unvaccinated, vaccinated=vaccinated)
 
 svg_file = './out.svg'
 png_file = './out.png'
