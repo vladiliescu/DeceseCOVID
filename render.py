@@ -14,7 +14,12 @@ lookup = TemplateLookup(directories=[template_dir])
 template = lookup.get_template('derived.mako')
 # template = Template(filename='derived.mako', lookup=lookup) # for some reason this doesn't work in Azure Functions
 
-rendered = template.render()
+total_deaths = 442
+unvaccinated = 397
+vaccinated = 45
+
+
+rendered = template.render(total_deaths=total_deaths)
 
 svg_file = './out.svg'
 png_file = './out.png'
