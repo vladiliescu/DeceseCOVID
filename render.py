@@ -18,13 +18,13 @@ def svg_settings():
     """
     max_width = 1280
 
-    sprite_height = 40
-    sprite_width = 20
+    sprite_height = 60
+    sprite_width = 25
 
-    sprite_distance_x = 30
-    sprite_distance_y = 45
+    sprite_distance_x = 5
+    sprite_distance_y = 5
 
-    x_start = 20
+    x_start = 25
     y_start = 200
 
     y_bottom_padding = 200
@@ -53,7 +53,7 @@ lookup = TemplateLookup(directories=[template_dir])
 template = lookup.get_template('derived.mako')
 # template = Template(filename='derived.mako', lookup=lookup) # for some reason this doesn't work in Azure Functions
 
-unvaccinated = 24
+unvaccinated = 40
 vaccinated = 3
 date = datetime(2021, 10, 13)
 
