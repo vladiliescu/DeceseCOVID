@@ -1,47 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<%
-(x, y, z) = self.stuff()
-%>
-
-
-<%
-    max_width = 1280
-    max_height =1000
-
-##     sprite_height = 100
-##     sprite_width = 100
-##
-##     sprite_distance_x = 25
-##     sprite_distance_y = 45
-##
-##     x_start = 10
-##     y_start = 200
-##
-##     y_bottom_padding = 200
-##
-##     sprites_per_row = (max_width - x_start)/(sprite_width + sprite_distance_x)
-## ##     sprite_rows = (unvaccinated + vaccinated) / sprites_per_row
-##     sprite_rows = 122
-##
-##     row_height = sprite_height + sprite_distance_y
-##     max_height = y_start + sprite_rows*row_height + y_bottom_padding
-%>
-
-<%
-    t = self.stuff2()
-%>
-
-
-${context['unvaccinated']}
-
 <svg x="0pt" y="0pt"
      width="${max_width}pt" height="${max_height}pt" viewBox="0 0 ${max_width} ${max_height}"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
     <g>
-
         <text
                 xml:space="preserve"
                 style="font-style:normal;font-weight:normal;font-size:24px;line-height:1.25;font-family:sans-serif;fill:#b13254;fill-opacity:1;stroke:none;stroke-width:0.75"
@@ -53,7 +16,7 @@ ${context['unvaccinated']}
                     id="tspan7301"
                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:Lato;-inkscape-font-specification:Lato;fill:#b13254;fill-opacity:1;stroke-width:0.75"
                     x="28.486238"
-                    y="38.394936">DECESE COVID-19  ÎN ROMÂNIA</tspan></text>
+                    y="38.394936">DECESE COVID-19 ÎN ROMÂNIA</tspan></text>
         <text
                 xml:space="preserve"
                 style="font-style:normal;font-weight:normal;font-size:16px;line-height:1.25;font-family:sans-serif;fill:#b13254;fill-opacity:1;stroke:none;stroke-width:0.75"

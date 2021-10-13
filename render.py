@@ -35,13 +35,13 @@ def svg_settings():
     max_height = y_start + sprite_rows * row_height + y_bottom_padding
 
     return {
-        max_width,
-        sprite_height, sprite_width,
-        sprite_distance_x, sprite_distance_y,
-        x_start, y_start,
-        y_bottom_padding,
-        sprites_per_row, sprite_rows,
-        row_height, max_height
+        'max_width': max_width,
+        'sprite_height': sprite_height, 'sprite_width': sprite_width,
+        'sprite_distance_x': sprite_distance_x, 'sprite_distance_y': sprite_distance_y,
+        'x_start': x_start, 'y_start': y_start,
+        'y_bottom_padding': y_bottom_padding,
+        'sprites_per_row': sprites_per_row, 'sprite_rows': sprite_rows,
+        'row_height': row_height, 'max_height': max_height
     }
 
 
@@ -56,7 +56,7 @@ unvaccinated = 397
 vaccinated = 45
 date = datetime(2021, 10, 13)
 
-rendered = template.render(unvaccinated=unvaccinated, vaccinated=vaccinated, date=date, settings=svg_settings())
+rendered = template.render(unvaccinated=unvaccinated, vaccinated=vaccinated, date=date, **svg_settings())
 
 svg_file = './out.svg'
 png_file = './out.png'

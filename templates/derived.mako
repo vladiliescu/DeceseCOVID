@@ -1,36 +1,22 @@
 <%inherit file="base.mako"  />
 
-<%def name="stuff()"><%
-return (3, 4, 5)
-%></%def>
-
 <%
-    # Consider page args - https://docs.makotemplates.org/en/latest/namespaces.html?highlight=pageargs#the-body-method
-    max_width = 1000
-
     total_deaths = unvaccinated + vaccinated
 
     unvaccinated_fill = '#b13254'
     vaccinated_fill = '#4a6d88'
 
-    sprite_height = 1
-    sprite_width = 1
 
-    x_current = x_start = 0
-    y_current = y_start = 0
+    x_current = x_start
+    y_current = y_start
 
-    x_step = 1
-    y_step = 1
-
-##     x_instances = max_width / (sprite_width + x_step)
+    x_step = sprite_distance_x
+    y_step = sprite_distance_y
 %>
 
-<%def name="stuff2()"><%
-return (total_deaths)
-%></%def>
+${max_width}
 
 %for i in range(0, total_deaths):
-
    <%
         if i < unvaccinated:
             fill = unvaccinated_fill
