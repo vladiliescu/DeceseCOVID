@@ -1,5 +1,6 @@
 import os
 import webbrowser
+import math
 
 import cairosvg
 
@@ -17,19 +18,20 @@ def svg_settings():
     """
     max_width = 1280
 
-    sprite_height = 100
-    sprite_width = 100
+    sprite_height = 40
+    sprite_width = 20
 
-    sprite_distance_x = 25
+    sprite_distance_x = 30
     sprite_distance_y = 45
 
-    x_start = 10
+    x_start = 20
     y_start = 200
 
     y_bottom_padding = 200
+    x_right_padding = 20
 
-    sprites_per_row = (max_width - x_start) / (sprite_width + sprite_distance_x)
-    sprite_rows = (unvaccinated + vaccinated) / sprites_per_row
+    sprites_per_row = math.floor((max_width - x_start - x_right_padding) / (sprite_width + sprite_distance_x))
+    sprite_rows = math.ceil((unvaccinated + vaccinated) / sprites_per_row)
 
     row_height = sprite_height + sprite_distance_y
     max_height = y_start + sprite_rows * row_height + y_bottom_padding
@@ -51,9 +53,8 @@ lookup = TemplateLookup(directories=[template_dir])
 template = lookup.get_template('derived.mako')
 # template = Template(filename='derived.mako', lookup=lookup) # for some reason this doesn't work in Azure Functions
 
-total_deaths = 442
-unvaccinated = 397
-vaccinated = 45
+unvaccinated = 24
+vaccinated = 3
 date = datetime(2021, 10, 13)
 
 rendered = template.render(unvaccinated=unvaccinated, vaccinated=vaccinated, date=date, **svg_settings())

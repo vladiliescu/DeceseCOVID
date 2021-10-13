@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<svg x="0pt" y="0pt"
-     width="${max_width}pt" height="${max_height}pt" viewBox="0 0 ${max_width} ${max_height}"
+<svg x="0px" y="0px"
+     width="${max_width}px" height="${max_height}px" viewBox="0 0 ${max_width} ${max_height}"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
      xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
     <g>
