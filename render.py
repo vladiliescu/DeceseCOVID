@@ -10,10 +10,10 @@ from datetime import datetime
 
 def svg_settings():
     """
-    Should have been calculated directly in the view, but for the life of me I couldn't get pass the calculated values
+    Should have been calculated directly in the view, but for the life of me I couldn't pass the calculated values
     between base & derived. Some convoluted info is here:
     https://mako-discuss.narkive.com/DITZe7SV/how-can-i-pass-variable-from-child-to-the-parent-template
-    but it doesn't work when using template arguments for the calculations
+    but it doesn't seem to work when using template arguments for the calculations
     :return:
     """
     max_width = 1024
