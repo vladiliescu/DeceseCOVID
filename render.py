@@ -1,17 +1,18 @@
 import os
 import webbrowser
 import math
-
-import cairosvg
-
-from mako.lookup import TemplateLookup
 from datetime import datetime
 
+import typer
+from mako.lookup import TemplateLookup
+import cairosvg
 
-def svg_settings():
+
+def compute_svg_settings(unvaccinated: int, vaccinated: int):
     """
-    Should have been calculated directly in the view, but for the life of me I couldn't pass the calculated values
-    between base & derived. Some convoluted info is here:
+    These should have been calculated directly in the view, but for the life of me I couldn't figure out how to 
+    pass the calculated values between derived & base.
+    Some convoluted info is here:
     https://mako-discuss.narkive.com/DITZe7SV/how-can-i-pass-variable-from-child-to-the-parent-template
     but it doesn't seem to work when using template arguments for the calculations
     :return:
@@ -24,7 +25,7 @@ def svg_settings():
     sprite_distance_x = 5
     sprite_distance_y = 5
 
-    x_start = 25
+    x_start = 30
     y_start = 220
 
     y_bottom_padding = 120
@@ -39,7 +40,7 @@ def svg_settings():
     return {
         'max_width': max_width, 'max_height': max_height,
         'sprite_height': sprite_height, 'sprite_width': sprite_width,
-        'sprite_distance_x': sprite_distance_x,  'sprite_distance_y': sprite_distance_y,
+        'sprite_distance_x': sprite_distance_x, 'sprite_distance_y': sprite_distance_y,
         'x_start': x_start, 'y_start': y_start,
         'y_bottom_padding': y_bottom_padding,
         'x_right_padding': x_right_padding,
@@ -48,25 +49,31 @@ def svg_settings():
     }
 
 
-template_dir = './templates'
+def main(unvaccinated: int, vaccinated: int, previous: int, svg_file: str = './out.svg', png_file: str = './out.png'):
+    """
+    Renders the infographic and opens it in the browser.
 
-lookup = TemplateLookup(directories=[template_dir])
-template = lookup.get_template('derived.mako')
-# template = Template(filename='derived.mako', lookup=lookup) # for some reason this doesn't work in Azure Functions
+    :param unvaccinated: How many deaths of unvaccinated people
+    :param vaccinated: How many deaths of vaccinated people
+    :param previous: How many deaths out of the total are outside the reference interval (last 24 hrs)
+    :return:
+    """
+    date = datetime.today()
+    
+    template_dir = './templates'
+    lookup = TemplateLookup(directories=[template_dir])
+    template = lookup.get_template('derived.mako')
 
-unvaccinated = 312
-vaccinated = 40
-date = datetime.today()
+    rendered_content = template.render(unvaccinated=unvaccinated, vaccinated=vaccinated, total_deaths=unvaccinated + vaccinated,
+                               previous_deaths=previous,
+                               date=date, **compute_svg_settings(unvaccinated, vaccinated))
 
-rendered = template.render(unvaccinated=unvaccinated, vaccinated=vaccinated, total_deaths=unvaccinated + vaccinated,
-                           date=date, **svg_settings())
+    with open(svg_file, 'w') as file:
+        file.write(rendered_content)
 
-svg_file = './out.svg'
-png_file = './out.png'
+    cairosvg.svg2png(url=svg_file, write_to=png_file)
+    webbrowser.open('file://' + os.path.realpath(png_file))
 
-with open(svg_file, 'w') as file:
-    file.write(rendered)
 
-cairosvg.svg2png(url=svg_file, write_to=png_file)
-
-webbrowser.open('file://' + os.path.realpath(png_file))
+if __name__ == "__main__":
+    typer.run(main)

@@ -57,7 +57,7 @@
                 y="142"
                 id="text4828"><tspan
          sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:44px;font-family:Lato;-inkscape-font-specification:'Lato Medium';fill:${vaccinated_fill};fill-opacity:1.0">decese</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:44px;font-family:Lato;-inkscape-font-specification:'Lato Medium';fill:${vaccinated_fill};fill-opacity:1.0">decese, din care ${previous_deaths} anterioare</tspan></text>
 
         <text
                 xml:space="preserve"
