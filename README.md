@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 ## How to help
 
-Take a look at the [issues](https://github.com/vladiliescu/DeceseCOVID/labels/help%20wanted), and add comment to the one you'd like to work on.
+Take a look at the [issues](https://github.com/vladiliescu/DeceseCOVID/labels/help%20wanted) to see if there's something you could tackle, add a comment to the one you'd like to work on.
 
 If **development**'s not your game but **design** is, take a look at [our sample output](./sample/out.svg) and see if you can make it better. Please get in contact with @vladiliescu before doing so, to make sure no one else is working on this.
 

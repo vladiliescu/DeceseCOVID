@@ -49,7 +49,7 @@ def compute_svg_settings(unvaccinated: int, vaccinated: int):
     }
 
 
-def main(unvaccinated: int, vaccinated: int, previous: int, svg_file: str = './out.svg', png_file: str = './out.png'):
+def main(unvaccinated: int, vaccinated: int, previous: int, svg_file: str = './out/out.svg', png_file: str = './out/out.png'):
     """
     Renders the infographic and opens it in the browser.
 
