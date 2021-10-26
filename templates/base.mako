@@ -110,23 +110,13 @@
         <text
                 xml:space="preserve"
                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;line-height:1.25;font-family:Lato;-inkscape-font-specification:Lato;fill:${vaccinated_fill};fill-opacity:1;stroke:none"
-                x="${(max_width - x_right_padding - 266)}px"
+                x="${(max_width - x_right_padding - 326)}px"
                 y="${(y_legend + 30)}px"
         >
-            <tspan>creat de <tspan
+            <tspan style="fill:${vaccinated_fill}">twitter.com/<tspan
                 style="fill:${unvaccinated_fill};fill-opacity:1"
-                id="tspan21177">@vladiliescu</tspan></tspan>
+                id="tspan21177">DeceseCOVID</tspan></tspan>
         </text>
-        <text
-                xml:space="preserve"
-                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;line-height:1.25;font-family:Lato;-inkscape-font-specification:Lato;fill:${unvaccinated_fill};fill-opacity:1;stroke:none"
-                x="${(max_width - x_right_padding - 365)}px"
-                y="${(y_legend + 60)}px"
-                >
-            <tspan>
-                <tspan style="fill:${vaccinated_fill};fill-opacity:1">inspirat de </tspan>@uchealth</tspan>
-        </text>
-
 
     </g>
 </svg>
